@@ -1,0 +1,76 @@
+/* Color Variables */
+:root {
+  --bg: #EAF3EA;
+  --text-primary: #2E2E2E;
+  --text-secondary: #555555;
+  --heading: #2F4F4F;
+  --accent: #3C6E71;
+  --link: #3C6E71;
+  --button: #8DAA91;
+  --banner-bg: #DCEEEA;
+  --code-bg: #F0F0F0;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Garamond', 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Courier New', monospace;
+  color: var(--heading);
+}
+
+/* Paragraphs and Secondary Text */
+p {
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.8; /* Soft hover effect */
+}
+
+/* Buttons / Tags */
+.button, button {
+  background-color: var(--button);
+  color: var(--text-primary);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.button:hover, button:hover {
+  opacity: 0.9;
+}
+
+/* Banner */
+.banner {
+  background-color: var(--banner-bg);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--button);
+}
+
+/* Code Blocks */
+code, pre {
+  background-color: var(--code-bg);
+  padding: 0.2em 0.5em;
+  font-family: 'Courier New', monospace;
+  border-radius: 4px;
+  display: inline-block;
+}
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}
