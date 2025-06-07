@@ -1,0 +1,145 @@
+@use "variables" as *;
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: $bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  .space {
+    position: relative;
+    width: 220px;
+    height: 360px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .splash-container {
+    margin-bottom: 12px;
+  }
+
+  .preloader-heading {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: bold;
+    color: $heading;
+    margin: 0 0 6px;
+  }
+
+  .splash-text {
+    color: $text-secondary;
+    font-size: 14px;
+    white-space: pre-line;
+    margin: 0 0 8px;
+    animation: pulse 2.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .planet-shadow {
+    position: absolute;
+    width: 80px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shadow-scale 2.5s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  .planet-wrapper {
+    animation: bounce 2.5s ease-in-out infinite;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+  }
+
+  .planet {
+    width: 100px;
+    height: 100px;
+    background-color: $accent;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset -8px -8px 0 rgba(0, 0, 0, 0.15);
+
+    .crater {
+      position: absolute;
+      background: darken($accent, 15%);
+      border-radius: 50%;
+      opacity: 0.6;
+      box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .c1 { width: 16px; height: 16px; top: 20px; left: 20px; }
+    .c2 { width: 12px; height: 12px; top: 60px; left: 40px; }
+    .c3 { width: 10px; height: 10px; top: 45px; right: 25px; }
+    .c4 { width: 8px; height: 8px; bottom: 20px; left: 30px; }
+  }
+
+  .ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 60px;
+    border: 2px solid $text-secondary;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotateX(70deg) rotateZ(-20deg);
+
+    &.front { z-index: 4; border-top: none; }
+    &.back  { z-index: 1; border-bottom: none; }
+  }
+
+  .loading-text {
+    margin-top: 12px;
+    font-size: 16px;
+    font-family: monospace;
+    color: $text-primary;
+  }
+
+  .dots::after {
+    content: '';
+    animation: dots 1.5s steps(4, end) infinite;
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-15px); }
+}
+
+@keyframes shadow-scale {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.25; }
+  50%      { transform: translateX(-50%) scale(0.7); opacity: 0.15; }
+}
+
+@keyframes dots {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
