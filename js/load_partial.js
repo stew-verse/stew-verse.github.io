@@ -1,23 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const bodyPartials = document.querySelectorAll("[data-include]:not(template)");
-  const headPartials = document.querySelectorAll("template[data-include]");
-  const totalPartials = bodyPartials.length + headPartials.length;
   let loadedCount = 0;
+  let totalPartials = 0;
   const version = `v=${Date.now()}`;
 
-  bodyPartials.forEach(el => {
-    const url = bustCache(el.getAttribute("data-include"));
-    loadWithRetry(url, el, false);
-  });
+  const seenPartials = new Set(); // To prevent re-fetching same URLs
 
-  headPartials.forEach(el => {
-    const url = bustCache(el.getAttribute("data-include"));
-    loadWithRetry(url, el, true);
-  });
+  // Initial scan
+  scanAndLoad(document);
 
-  // ----------------------
-  // Retry Mechanism
-  // ----------------------
+  function scanAndLoad(root) {
+    const bodyPartials = root.querySelectorAll("[data-include]:not(template)");
+    const headPartials = root.querySelectorAll("template[data-include]");
+    totalPartials += bodyPartials.length + headPartials.length;
+
+    bodyPartials.forEach(el => {
+      const url = bustCache(el.getAttribute("data-include"));
+      if (!seenPartials.has(el)) {
+        seenPartials.add(el);
+        loadWithRetry(url, el, false);
+      }
+    });
+
+    headPartials.forEach(el => {
+      const url = bustCache(el.getAttribute("data-include"));
+      if (!seenPartials.has(el)) {
+        seenPartials.add(el);
+        loadWithRetry(url, el, true);
+      }
+    });
+  }
 
   function loadWithRetry(url, el, isHead, attempts = 0) {
     fetch(url)
@@ -38,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             document.head.appendChild(child);
           });
-
         } else {
           el.innerHTML = data;
 
@@ -71,10 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // ----------------------
-  // Helpers
-  // ----------------------
-
   function bustCache(url) {
     return url.includes("?") ? `${url}&${version}` : `${url}?${version}`;
   }
@@ -94,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const temp = document.createElement("div");
     temp.innerHTML = html;
 
-    // Inject <script>
+    // Inject scripts
     temp.querySelectorAll("script").forEach(oldScript => {
       const newScript = document.createElement("script");
       [...oldScript.attributes].forEach(attr =>
@@ -104,22 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(newScript);
     });
 
-    // Inject <link rel="stylesheet">
+    // Inject styles
     temp.querySelectorAll('link[rel="stylesheet"]').forEach(oldLink => {
-    const newLink = document.createElement("link");
-   [...oldLink.attributes].forEach(attr =>
-       newLink.setAttribute(attr.name, attr.value)
-   );
-    newLink.onload = checkIfAllLoaded; // Wait for CSS to load before counting it
-    document.head.appendChild(newLink);
-   });
+      const newLink = document.createElement("link");
+      [...oldLink.attributes].forEach(attr =>
+        newLink.setAttribute(attr.name, attr.value)
+      );
+      newLink.onload = checkIfAllLoaded;
+      document.head.appendChild(newLink);
+      totalPartials++; // Count CSS as a partial
+    });
 
-   // 🔁 Re-scan new templates added
-  const newPartials = temp.querySelectorAll("[data-include]");
-  newPartials.forEach(partial => {
-    const url = bustCache(partial.getAttribute("data-include"));
-    const isHead = partial.tagName === "TEMPLATE" || partial.closest("head");
-    loadWithRetry(url, partial, isHead);
-  });
+    // Scan and load nested partials
+    scanAndLoad(temp);
   }
 });
