@@ -1,3 +1,6 @@
+# HELP WANTED
+## Please teach me, guide me and help me to create this website.
+
 # Mystic Devloper
 
 Welcome to **Mystic Devloper** — a personal site by Surya exploring math, logic, and curiosity.
