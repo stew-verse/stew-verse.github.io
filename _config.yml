@@ -1,53 +1,146 @@
-# Basic site info
+# -------------------------------------------------
+# 🧾 Basic Site Info
+# -------------------------------------------------
 title: "Mystic Devloper"
 description: "Exploring Math, Logic, and Curiosity — by Surya."
 url: "https://mystic-devloper.github.io"
-baseurl: "" # Leave empty for root
+baseurl: ""
 
-# Author
+# -------------------------------------------------
+# 👤 Author Info
+# -------------------------------------------------
 author:
   name: "Suryansh Singh"
   url: "https://mystic-devloper.github.io"
   email: "suryansh.singh.creates@gmail.com"
 
-# Appearance and theme
-theme_color: "#3C6E71" # Teal Blue (Accent)
-background_color: "#EAF3EA" # Pale Sage
+# -------------------------------------------------
+# 🎨 Theme / Appearance
+# -------------------------------------------------
+theme_color: "#3C6E71"
+background_color: "#EAF3EA"
 logo: "/assets/favicons/favicon-512x512.png"
 favicon: "/assets/favicons/favicon-180x180.png"
 apple_touch_icon: "/assets/favicons/apple-touch-icon.png"
 manifest: "/manifest.json"
 browserconfig: "/browserconfig.xml"
 
-# Social links (optional)
-social:
-  github: "https://github.com/mystic-devloper"
-  reddit: "https://reddit.com/user/sinister_surya"
-  x: "https://x.com/sinister_surya"
-  linkedin: "https://www.linkedin.com/in/research-by-surya"
-  substack: "https://researchbysurya.substack.com"
+# -------------------------------------------------
+# 📁 Site Navigation
+# -------------------------------------------------
+navigation:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Research
+    url: /research/
+  - title: Codes
+    url: /codes/
+  - title: Games
+    url: /games/
+  - title: About
+    url: /about/
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-permalink: pretty
+# -------------------------------------------------
+# 🌐 Social Links
+# -------------------------------------------------
+social_links:
+  GitHub: "https://github.com/mystic-devloper"
+  Reddit: "https://reddit.com/user/sinister_surya"
+  X: "https://x.com/sinister_surya"
+  LinkedIn: "https://www.linkedin.com/in/research-by-surya"
+  Substack: "https://researchbysurya.substack.com"
 
-# Favicon assets folder
-assets:
-  favicon_path: "/assets/favicons"
+# -------------------------------------------------
+# 🔌 Plugins
+# -------------------------------------------------
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-paginate
+  - jemoji
+  - jekyll-include-cache
 
-# Exclude these from build
-exclude:
-  - README.md
-  - node_modules/
-  - Gemfile
-  - Gemfile.lock
+# -------------------------------------------------
+# 🔧 Plugin Settings
+# -------------------------------------------------
+paginate: 5
+paginate_path: "/blog/page:num"
+excerpt_separator: "<!-- more -->"
+jekyll-mentions: https://x.com
+timezone: Asia/Kolkata
 
-# Defaults (to make adding front matter easier)
+# -------------------------------------------------
+# 🧱 Layout Defaults
+# -------------------------------------------------
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
-      layout: "post"
-      author: "Suryansh Singh"
+      layout: post
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+    values:
+      image: "/assets/default-social-image.png"
+
+# -------------------------------------------------
+# 🧪 Markdown + Build
+# -------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# -------------------------------------------------
+# 📦 Assets & CSS
+# -------------------------------------------------
+sass:
+  style: compressed
+assets:
+  favicon_path: "/assets/favicons"
+  image_path: "/assets/images"
+
+# -------------------------------------------------
+# 🔐 Favicons for Manifest
+# -------------------------------------------------
+favicons:
+  16: "/assets/favicons/favicon-16x16.png"
+  32: "/assets/favicons/favicon-32x32.png"
+  96: "/assets/favicons/favicon-96x96.png"
+  120: "/assets/favicons/favicon-120x120.png"
+  144: "/assets/favicons/favicon-144x144.png"
+  180: "/assets/favicons/favicon-180x180.png"
+  512: "/assets/favicons/favicon-512x512.png"
+
+# -------------------------------------------------
+# 🚫 Exclude from Build
+# -------------------------------------------------
+exclude:
+  - README.md
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - .jekyll-cache
+
+# -------------------------------------------------
+# 🌐 Encoding & Language
+# -------------------------------------------------
+encoding: utf-8
+lang: en-US
+
+# -------------------------------------------------
+# 📖 Sharing Options
+# -------------------------------------------------
+sharing_links:
+  Twitter: "#3C6E71"
+  Facebook: "#3C6E71"
+  Email: true
