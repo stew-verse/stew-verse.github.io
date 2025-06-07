@@ -1,6 +1,9 @@
 # HELP WANTED
 ## Please teach me, guide me and help me to create this website.
 
+This is my alt account.
+My main account is mystic-devloper: [mystic-devloper](https://github.com/mystic-devloper)
+
 # Mystic Devloper
 
 Welcome to **Mystic Devloper** — a personal site by Surya exploring math, logic, and curiosity.
