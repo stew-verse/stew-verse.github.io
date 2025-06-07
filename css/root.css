@@ -20,6 +20,7 @@ body {
   padding: 0;
   line-height: 1.6;
 }
+
 /* Body loaded animation */
 body {
   opacity: 0;
@@ -28,6 +29,18 @@ body {
 
 body.loaded {
   opacity: 1;
+}
+
+body:not(.loaded) main,
+body:not(.loaded) header,
+body:not(.loaded) footer {
+  visibility: hidden;
+}
+
+body.loaded main,
+body.loaded header,
+body.loaded footer {
+  visibility: visible;
 }
 
 h1, h2, h3 {
