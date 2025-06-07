@@ -1,9 +1,9 @@
-@import "variables";
+@use "variables" as *;
 
 // Global Styles
 body {
-  background-color: var(--bg);
-  color: var(--text-primary);
+  background-color: $bg;
+  color: $text-primary;
   font-family: 'Garamond', 'Georgia', serif;
   margin: 0;
   padding: 0;
@@ -33,12 +33,12 @@ body {
 // Headings
 h1, h2, h3 {
   font-family: 'Courier New', monospace;
-  color: var(--heading);
+  color: $heading;
 }
 
 // Paragraphs
 p {
-  color: var(--text-secondary);
+  color: $text-secondary;
 }
 
 // Main Content
@@ -53,7 +53,7 @@ main {
 
 // Links
 a {
-  color: var(--accent);
+  color: $accent;
   text-decoration: none;
 
   &:hover {
@@ -63,8 +63,8 @@ a {
 
 // Buttons / Tags
 .button, button {
-  background-color: var(--button);
-  color: var(--text-primary);
+  background-color: $button;
+  color: $text-primary;
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
@@ -78,15 +78,15 @@ a {
 
 // Banner
 .banner {
-  background-color: var(--banner-bg);
+  background-color: $banner-bg;
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid var(--button);
+  border-bottom: 1px solid $button;
 }
 
 // Code Blocks
 code, pre {
-  background-color: var(--code-bg);
+  background-color: $code-bg;
   padding: 0.2em 0.5em;
   font-family: 'Courier New', monospace;
   border-radius: 4px;
