@@ -1,5 +1,12 @@
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("/partials/core/preloader.html")
+  if (sessionStorage.getItem("preloaderShown")) {
+    // Skip preloader
+    window.partialsReady = false;
+    document.body.classList.add("loaded");
+    return;
+  }
+
+  fetch("preloader.html")
     .then(res => res.text())
     .then(html => {
       const wrapper = document.createElement("div");
@@ -7,19 +14,35 @@ window.addEventListener("DOMContentLoaded", () => {
       wrapper.innerHTML = html;
       document.body.appendChild(wrapper);
 
-      // Re-execute embedded <script> (for splash text logic)
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
+      // ⬇️ RANDOM SPLASH TEXT INSERTION
+      const splashTexts = [
+        "Mystic-Devloper is kinda cool, right?",
+        "C++ was created by Bjarne Stroustrup and,\nits development began in 1979.",
+        "Python was created by Guido van Rossum and,\nit was first released on 1991.",
+        "Coding is tiring!",
+        "Mathematics is beautiful.",
+        "(a+b)² = a² + 2ab + b².",
+        "Are you a coder?",
+        "Aha, fellow Maths & CS lover!",
+        "Maths and Computer Science are the best!!",
+        "Follow me on my socials!",
+        "Did you read Games and Numbers?\nIts is so much fun!",
+        "print(\"Hello, World!\")",
+        "std::cout << (\"Why C++ is so hard?\");",
+        "It is never about the destination,\nAll that matters is journey.",
+        "(a + b)(a - b) = a² - b²"
+      ];
 
-      temp.querySelectorAll("script").forEach(oldScript => {
-        const newScript = document.createElement("script");
-        [...oldScript.attributes].forEach(attr => {
-          newScript.setAttribute(attr.name, attr.value);
-        });
-        newScript.textContent = oldScript.textContent;
-        document.body.appendChild(newScript);
-      });
+      const splashTextElement = document.getElementById("splash-text");
+      if (splashTextElement) {
+        const randomText = splashTexts[Math.floor(Math.random() * splashTexts.length)];
+        splashTextElement.textContent = randomText;
+      }
 
+      // ✅ Save session flag
+      sessionStorage.setItem("preloaderShown", "true");
+
+      // Track when preloader was shown
       window._preloaderStart = performance.now();
     });
 });
