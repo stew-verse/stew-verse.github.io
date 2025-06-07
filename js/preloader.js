@@ -47,7 +47,7 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
       wrapper.style.opacity = "0";
-      wrapper.style.transition = "opacity 0.6s ease";
+      wrapper.style.transition = "opacity 0.1s ease";
       setTimeout(() => {
         wrapper.remove();
         document.body.classList.add("loaded");
