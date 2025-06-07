@@ -90,7 +90,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/assets/default-social-image.png"
+      image: "/assets/favicons/favicon512x512.png"
 
 # -------------------------------------------------
 # 🧪 Markdown + Build
