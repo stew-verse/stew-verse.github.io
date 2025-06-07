@@ -1,0 +1,48 @@
+name: Conditionally Deploy Jekyll Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read deploy flag
+        id: deploy_flag
+        run: |
+          DEPLOY=$(grep -i 'deploy:' deploy.md | awk '{print tolower($2)}')
+          echo "Deploy flag: $DEPLOY"
+          echo "deploy=$DEPLOY" >> $GITHUB_OUTPUT
+
+      - name: Skip deploy if deploy flag is false
+        if: steps.deploy_flag.outputs.deploy != 'true'
+        run: echo "Skipping deployment because deploy flag is false."
+
+      - name: Setup Ruby
+        if: steps.deploy_flag.outputs.deploy == 'true'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install dependencies
+        if: steps.deploy_flag.outputs.deploy == 'true'
+        run: bundle install
+
+      - name: Build site with Jekyll
+        if: steps.deploy_flag.outputs.deploy == 'true'
+        run: bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        if: steps.deploy_flag.outputs.deploy == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
