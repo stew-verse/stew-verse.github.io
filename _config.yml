@@ -22,8 +22,8 @@ background_color: "#EAF3EA"
 logo: "/assets/favicons/favicon-512x512.png"
 favicon: "/assets/favicons/favicon-180x180.png"
 apple_touch_icon: "/assets/favicons/apple-touch-icon.png"
-manifest: "/manifest.json"
-browserconfig: "/browserconfig.xml"
+manifest: "/assets/manifest.json"
+browserconfig: "/assets/browserconfig.xml"
 
 # -------------------------------------------------
 # 📁 Site Navigation
