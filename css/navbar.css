@@ -85,12 +85,6 @@
   width: 100%;
 }
 
-/* Main Content */
-main {
-  text-align: center;
-  padding: 80px 20px;
-}
-
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
@@ -110,9 +104,5 @@ main {
 
   .nav-links a {
     font-size: 15px;
-  }
-  
-  main {
-    padding: 40px 16px;
   }
 }
