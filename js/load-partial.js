@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   let loadedCount = 0;
   let totalPartials = 0;
-  const version = `v=0.0.2`;
+  const version = `v=${Date.now()}`;
 
   const seenPartials = new Set(); // To prevent re-fetching same URLs
 
