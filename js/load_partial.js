@@ -113,5 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     newLink.onload = checkIfAllLoaded; // Wait for CSS to load before counting it
     document.head.appendChild(newLink);
    });
+
+   // 🔁 Re-scan new templates added
+  const newPartials = temp.querySelectorAll("[data-include]");
+  newPartials.forEach(partial => {
+    const url = bustCache(partial.getAttribute("data-include"));
+    const isHead = partial.tagName === "TEMPLATE" || partial.closest("head");
+    loadWithRetry(url, partial, isHead);
+  });
   }
 });
