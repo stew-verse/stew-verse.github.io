@@ -36,12 +36,6 @@ permalink: pretty
 assets:
   favicon_path: "/assets/favicons"
 
-# Plugins (optional)
-plugins:
-  - jekyll-seo-tag
-  - jekyll-feed
-  - jekyll-sitemap
-
 # Exclude these from build
 exclude:
   - README.md
