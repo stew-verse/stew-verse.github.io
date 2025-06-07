@@ -1,12 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem("preloaderShown")) {
-    // Skip preloader
-    window.partialsReady = false;
-    document.body.classList.add("loaded");
-    return;
-  }
-
-  fetch("preloader.html")
+  fetch("/partials/core/preloader.html")
     .then(res => res.text())
     .then(html => {
       const wrapper = document.createElement("div");
@@ -14,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
       wrapper.innerHTML = html;
       document.body.appendChild(wrapper);
 
-      // ⬇️ RANDOM SPLASH TEXT INSERTION
+      // ✅ Add splash text directly via JS
       const splashTexts = [
         "Mystic-Devloper is kinda cool, right?",
         "C++ was created by Bjarne Stroustrup and,\nits development began in 1979.",
@@ -26,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
         "Aha, fellow Maths & CS lover!",
         "Maths and Computer Science are the best!!",
         "Follow me on my socials!",
-        "Did you read Games and Numbers?\nIts is so much fun!",
+        "Did you read Games and Numbers?\nIt is so much fun!",
         "print(\"Hello, World!\")",
         "std::cout << (\"Why C++ is so hard?\");",
         "It is never about the destination,\nAll that matters is journey.",
@@ -39,9 +32,6 @@ window.addEventListener("DOMContentLoaded", () => {
         splashTextElement.textContent = randomText;
       }
 
-      // ✅ Save session flag
-      sessionStorage.setItem("preloaderShown", "true");
-
       // Track when preloader was shown
       window._preloaderStart = performance.now();
     });
@@ -53,7 +43,7 @@ window.addEventListener("load", () => {
     if (!wrapper) return;
 
     const elapsed = performance.now() - (window._preloaderStart || 0);
-    const wait = Math.max(0, 1000 - elapsed);
+    const wait = Math.max(0, 1000 - elapsed); // Minimum display time = 1s
 
     setTimeout(() => {
       wrapper.style.opacity = "0";
