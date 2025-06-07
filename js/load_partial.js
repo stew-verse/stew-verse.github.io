@@ -106,11 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inject <link rel="stylesheet">
     temp.querySelectorAll('link[rel="stylesheet"]').forEach(oldLink => {
-      const newLink = document.createElement("link");
-      [...oldLink.attributes].forEach(attr =>
-        newLink.setAttribute(attr.name, attr.value)
-      );
-      document.head.appendChild(newLink);
-    });
+    const newLink = document.createElement("link");
+   [...oldLink.attributes].forEach(attr =>
+       newLink.setAttribute(attr.name, attr.value)
+   );
+    newLink.onload = checkIfAllLoaded; // Wait for CSS to load before counting it
+    document.head.appendChild(newLink);
+   });
   }
 });
