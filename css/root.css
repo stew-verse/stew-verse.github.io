@@ -24,7 +24,7 @@ body {
 /* Body loaded animation */
 body {
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.3s ease;
 }
 
 body.loaded {
