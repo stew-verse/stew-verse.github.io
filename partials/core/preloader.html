@@ -52,6 +52,7 @@
   .preloader-heading {
     font-size: 20px;
     font-weight: bold;
+    font-family: monospace;
     color: #2F4F4F; /* Deep Forest */
     margin: 0 0 6px 0;
   }
@@ -59,6 +60,7 @@
   .splash-text {
     color: #555555; /* Stone Gray */
     font-size: 14px;
+    font-family: 'Garamond', 'Georgia', serif;
     white-space: pre-line;
     margin: 0 0 8px 0;
     animation: pulse 2.4s ease-in-out infinite;
@@ -166,29 +168,3 @@
     50%      { transform: translateX(-50%) scale(0.7); opacity: 0.15; }
   }
 </style>
-
-<script>
-  const splashTexts = [
-    "Mystic-Devloper is kinda cool, right?",
-    "C++ was created by Bjarne Stroustrup and,\nits development began in 1979.",
-    "Python was created by Guido van Rossum and,\nit was first released on 1991.",
-    "Coding is tiring!",
-    "Mathematics is beautiful.",
-    "(a+b)² = a² + 2ab + b².",
-    "Are you a coder?",
-    "Aha, fellow Maths & CS lover!",
-    "Maths and Computer Science are the best!!",
-    "Follow me on my socials!",
-    "Did you read Games and Numbers?\nIts is so much fun!",
-    "print(\"Hello, World!\")",
-    "std::cout << (\"Why C++ is so hard?\");",
-    "It is never about the destination,\nAll that matters is journey.",
-    "(a + b)(a - b) = a² - b²"
-  ];
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const splashTextElement = document.getElementById("splash-text");
-    const randomText = splashTexts[Math.floor(Math.random() * splashTexts.length)];
-    splashTextElement.textContent = randomText;
-  });
-</script>
