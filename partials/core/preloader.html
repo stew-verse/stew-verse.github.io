@@ -1,7 +1,13 @@
 <!-- preloader.html -->
 <div class="preloader">
   <div class="space">
+    <div class="splash-container">
+      <h1 class="preloader-heading">Mystic-Devloper</h1>
+      <p class="splash-text" id="splash-text">Loading splash...</p>
+    </div>
+
     <div class="planet-shadow"></div>
+
     <div class="planet-wrapper">
       <div class="ring back"></div>
       <div class="planet">
@@ -12,6 +18,7 @@
       </div>
       <div class="ring front"></div>
     </div>
+
     <div class="loading-text">Now Loading<span class="dots">.</span></div>
   </div>
 </div>
@@ -30,8 +37,43 @@
   .space {
     position: relative;
     width: 220px;
-    height: 280px;
+    height: 360px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .splash-container {
+    margin-bottom: 12px;
+  }
+
+  .preloader-heading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2F4F4F; /* Deep Forest */
+    margin: 0 0 6px 0;
+  }
+
+  .splash-text {
+    color: #555555; /* Stone Gray */
+    font-size: 14px;
+    white-space: pre-line;
+    margin: 0 0 8px 0;
+    animation: pulse 2.4s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.08);
+      opacity: 0.95;
+    }
   }
 
   .planet-shadow {
@@ -52,19 +94,19 @@
     position: relative;
     width: 200px;
     height: 200px;
+    z-index: 2;
   }
 
   .planet {
     width: 100px;
     height: 100px;
-    background-color: #3C6E71;
+    background-color: #3C6E71; /* Teal Blue */
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: inset -8px -8px 0 rgba(0, 0, 0, 0.15);
-    z-index: 2;
   }
 
   .crater {
@@ -86,26 +128,19 @@
     left: 50%;
     width: 160px;
     height: 60px;
-    border: 2px solid #555555;
+    border: 2px solid #555555; /* Stone Gray */
     border-radius: 50%;
     transform: translate(-50%, -50%) rotateX(70deg) rotateZ(-20deg);
   }
 
-  .ring.front {
-    z-index: 4;
-    border-top: none;
-  }
-
-  .ring.back {
-    z-index: 1;
-    border-bottom: none;
-  }
+  .ring.front { z-index: 4; border-top: none; }
+  .ring.back { z-index: 1; border-bottom: none; }
 
   .loading-text {
-    margin-top: 20px;
+    margin-top: 12px;
     font-size: 16px;
     font-family: monospace;
-    color: #2E2E2E;
+    color: #2E2E2E; /* Charcoal Gray */
   }
 
   .dots::after {
@@ -131,3 +166,29 @@
     50%      { transform: translateX(-50%) scale(0.7); opacity: 0.15; }
   }
 </style>
+
+<script>
+  const splashTexts = [
+    "Mystic-Devloper is kinda cool, right?",
+    "C++ was created by Bjarne Stroustrup and,\nits development began in 1979.",
+    "Python was created by Guido van Rossum and,\nit was first released on 1991.",
+    "Coding is tiring!",
+    "Mathematics is beautiful.",
+    "(a+b)² = a² + 2ab + b².",
+    "Are you a coder?",
+    "Aha, fellow Maths & CS lover!",
+    "Maths and Computer Science are the best!!",
+    "Follow me on my socials!",
+    "Did you read Games and Numbers?\nIts is so much fun!",
+    "print(\"Hello, World!\")",
+    "std::cout << (\"Why C++ is so hard?\");",
+    "It is never about the destination,\nAll that matters is journey.",
+    "(a + b)(a - b) = a² - b²"
+  ];
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const splashTextElement = document.getElementById("splash-text");
+    const randomText = splashTexts[Math.floor(Math.random() * splashTexts.length)];
+    splashTextElement.textContent = randomText;
+  });
+</script>
