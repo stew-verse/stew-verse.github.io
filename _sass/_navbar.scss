@@ -1,0 +1,144 @@
+// _sass/_navbar.scss
+@use "variables" as *;
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: $color-banner-bg;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+
+  &.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+}
+
+.logo-name {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-text {
+  font-size: 14px;
+  color: $color-text-secondary;
+  line-height: 1.2;
+
+  strong {
+    color: $color-text-primary;
+  }
+}
+
+.username {
+  font-size: 14px;
+  color: $color-text-primary;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+
+  a {
+    position: relative;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 16px;
+    color: $color-link;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      left: 0;
+      bottom: -2px;
+      background-color: $color-heading; // Deep Forest
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+}
+
+/* Hamburger toggle button - hidden by default, shown on mobile */
+.navbar__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 16px;
+  display: none;
+
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: $color-link;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      background-color: $color-link;
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  /* Show hamburger toggle on mobile */
+  .navbar__toggle {
+    display: block;
+  }
+
+  /* Hide nav-links initially on mobile, toggled by JS */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+    width: 100%;
+  }
+}
