@@ -1,0 +1,62 @@
+<!-- _includes/nav-bar.html -->
+
+<header class="navbar">
+  <a href="https://github.com/mystic-devloper"
+     class="logo-name"
+     target="_blank"
+     rel="noopener"
+     title="Visit my GitHub profile">
+     
+    <img src="{{ site.image_path }}/site-logo.png" alt="Profile Picture" class="logo">
+    
+    <div class="profile-text">
+      <strong>Suryansh Singh</strong><br>
+      <span class="username">(mystic-devloper)</span>
+    </div>
+  </a>
+
+  <!-- Hamburger button only visible on mobile -->
+  <button class="navbar__toggle" aria-label="Toggle navigation" style="display:none;">
+    <span class="hamburger"></span>
+  </button>
+
+  <nav>
+    <ul class="nav-links">
+      {% for item in site.navigation %}
+        <li>
+          <a href="{{ item.url | relative_url }}"
+             class="{% if page.url == item.url %}active{% endif %}">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <script>
+    // Show hamburger button only on mobile
+    const toggleButton = document.querySelector('.navbar__toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    function handleResize() {
+      if (window.innerWidth <= 600) {
+        toggleButton.style.display = 'block';
+        navLinks.style.display = 'none';
+      } else {
+        toggleButton.style.display = 'none';
+        navLinks.style.display = 'flex';
+      }
+    }
+
+    toggleButton.addEventListener('click', () => {
+      if (navLinks.style.display === 'none') {
+        navLinks.style.display = 'flex';
+      } else {
+        navLinks.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleResize);
+  </script>
+</header>
