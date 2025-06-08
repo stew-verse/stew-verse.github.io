@@ -1,0 +1,124 @@
+# _config.yml for mystic-devloper.github.io
+
+#--------------------------------------------------
+# Basic Site Info
+#--------------------------------------------------
+title: "Mystic-Devloper"
+description: "Personal site of Suryansh Singh – Research, Games, Code, and more."
+baseurl: ""
+url: "https://mystic-devloper.github.io"
+author: "Suryansh Singh"
+manifest: "/assets/manifest.json"
+browserconfig: "assets/browserconfig.xml"
+favicon: "/assets/favicons/favicon512x512.png"
+logo: "/assets/logo/site-logo.svg"
+main_style: "/assets/styles.scss"
+
+#--------------------------------------------------
+# Build Settings
+#--------------------------------------------------
+theme: minima # Or blank if using custom styles
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: "/blog/page:num"
+
+#--------------------------------------------------
+# Language and Encoding
+#--------------------------------------------------
+encoding: "utf-8"
+lang: "en-US"
+
+#--------------------------------------------------
+# Google Analytics (for website views analytics)
+#--------------------------------------------------
+google_analytics: "G-5JSHJ036S2"
+google_analytics_anonymize_ip: true
+
+#--------------------------------------------------
+# Assets Paths
+#--------------------------------------------------
+favicon_path: "/assets/favicons"
+image_path: "/assets/images"
+js_path: "/assets/js"
+
+#--------------------------------------------------
+# Navigation
+#--------------------------------------------------
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Research"
+    url: "/research/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "Games"
+    url: "/games/"
+  - title: "About"
+    url: "/about/"
+
+#--------------------------------------------------
+# Styling Settings
+#--------------------------------------------------
+sass:
+  sass_dir: _sass
+  style: compressed
+
+#--------------------------------------------------
+# Exclusions from build
+#--------------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+
+#--------------------------------------------------
+# Defaults
+#--------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Suryansh Singh"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+#--------------------------------------------------
+# Social links
+#--------------------------------------------------
+social_links:
+    - "https://github.com/mystic-devloper"
+    - "https://researchbysurya.substack.com"
+    - "https://gamesandnumbers.substack.com"
+    - "https://x.com/sinister_surya"
+    - "https://www.linkedin.com/in/research-by-surya"
+
+#--------------------------------------------------
+# SEO
+#--------------------------------------------------
+seo:
+  name: "Suryansh Singh"
+  type: "Person"
+  image: "/favicons-512x512.png"
+  twitter: "sinister_surya"
+
+#--------------------------------------------------
+# Sitemap
+#--------------------------------------------------
+sitemap:
+  exclude:
+    - "/404.html"
