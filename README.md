@@ -90,11 +90,11 @@ To be well informed, follow me on,
   ORCID
 </a>
 
-7. <a href="https://researchbysurya.substack.com" target="_blank"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/substack.svg" alt="Substack" width="20" />
+7. <a href="https://researchbysurya.substack.com" target="_blank"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/substack.svg" alt="Substack" width="15" />
   Research by Surya
 </a>
 
-8. <a href="https://researchbysurya.substack.com" target="_blank"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/substack.svg" alt="Substack" width="20" />
+8. <a href="https://researchbysurya.substack.com" target="_blank"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/substack.svg" alt="Substack" width="15" />
   Math and CS Journal: Games and Numbers
 </a>
 
