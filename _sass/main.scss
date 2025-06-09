@@ -1,5 +1,8 @@
 // _scss/main.scss for compiled .scss files included in assets/styles.scss
 
+@import "utopia-variables";
 @use "variables";
-@use "base";
+@use "typography";
+@use "utility";
+@use "layouts";
 @use "navbar";
