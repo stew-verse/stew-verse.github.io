@@ -17,7 +17,7 @@ main_style: "/assets/styles.scss"
 #--------------------------------------------------
 # Build Settings
 #--------------------------------------------------
-theme: # Left blank (using custom styles)
+theme: null # Left blank (using custom styles)
 markdown: kramdown
 permalink: pretty
 plugins:
