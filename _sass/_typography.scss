@@ -150,3 +150,12 @@ code {
   display: grid;
   gap: var(--grid-gutter);
 }
+
+// Utility spacing classes
+.margin-bottom-s { margin-bottom: var(--space-s); }
+.margin-bottom-m { margin-bottom: var(--space-m); }
+.margin-bottom-l { margin-bottom: var(--space-l); }
+
+.padding-s { padding: var(--space-s); }
+.padding-m { padding: var(--space-m); }
+.padding-l { padding: var(--space-l); }
