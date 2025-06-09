@@ -1,23 +1,21 @@
 {% if site.favicons %}
-  {% for icon in site.favicons %}
-    <!-- SVG Icon for modern browsers -->
-    {% if icon[0] == svg %}
-      <link rel="icon" type="image/svg+xml" href="{{ icon[1] | relative_url }}">
-    {% endif %}
+  {% for key in site.favicons %}
+    {% assign type = key[0] %}
+    {% assign path = key[1] | relative_url %}
 
-    <!-- Fallback Ico for legacy browsers -->
-    {% if icon[0] == ico %}
-      <link rel="icon" type="image/x-icon" sizes=href="{{ icon[1] | relative_url }}">
+    {% if type == "svg" %}
+      <link rel="icon" type="image/svg+xml" href="{{ path }}">
+    {% elsif type == "ico" %}
+      <link rel="icon" type="image/x-icon" href="{{ path }}">
+    {% elsif type == "main_apple_touch" %}
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ path }}">
+    {% elsif type contains "." %}
+      {% comment %} Skip malformed key {% endcomment %}
+    {% else %}
+      <link rel="icon" type="image/png" sizes="{{ type }}x{{ type }}" href="{{ path }}">
+      <link rel="apple-touch-icon" sizes="{{ type }}x{{ type }}" href="{{ path }}">
     {% endif %}
-
-    <!-- Explicitly setting up apple-touch-icon as fallback-->
-    {% if icon[0] == main_apple_touch %}
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ icon[1] | relative_url }}">
-    {% endif %}
-
-    <!-- Setting other pngs and apple-touch-icon for older browsers -->
-    <link rel="icon" type="image/png" sizes="{{ icon[0] }}x{{ icon[0] }}" href="{{ icon[1] | relative_url }}">
-    <link rel="apple-touch-icon" sizes="{{ icon[0] }}x{{ icon[0] }}" href="{{ icon[1] | relative_url }}">
   {% endfor %}
 {% endif %}
-<link rel="shortcut icon" href="{{ site.avatarurl + '?s=32' | default: site.logo | relative_url }}">
+
+<link rel="shortcut icon" href="{{ site.avatarurl | append: '?s=32' | default: site.logo | relative_url }}">
