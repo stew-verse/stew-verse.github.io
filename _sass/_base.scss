@@ -1,79 +1,141 @@
-// _sass/_base.scss
-@use "variables" as *;
+@use 'variables' as *;  // your utopia-vars.scss loaded already
 
-/* Global Styles */
+html {
+  font-size: var(--step-0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 body {
-  background-color: $color-bg;
-  color: $color-text-primary;
   font-family: $font-body;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: $color-text-primary;
+  background-color: $color-bg;
+  font-feature-settings: 'kern', 'liga', 'onum';
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-/* Headings */
-h1, h2, h3 {
-  font-family: $font-heading;
-  color: $color-heading;
-}
-
-/* Paragraphs and Secondary Text */
-p {
-  color: $color-text-secondary;
-}
-
-/* Main Content */
-main {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-@media (max-width: 600px) {
-  main {
-    padding: 40px 16px;
-  }
-}
-
-/* Links */
 a {
   color: $color-link;
   text-decoration: none;
-}
-a:hover {
-  opacity: 0.8;
+  transition: color 0.1s ease, background-color 0.1s ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: lighten($color-link, 15%);
+    text-decoration: none;
+  }
 }
 
-/* Buttons / Tags */
-.button, button {
-  background-color: $color-button;
-  color: $color-text-primary;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-}
-.button:hover, button:hover {
-  opacity: 0.9;
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-style: normal;
+  color: $color-heading;
+  font-feature-settings: 'liga', 'lnum', 'kern';
+  margin-top: 0;
+  margin-bottom: var(--space-s);
+  line-height: 1.2;
 }
 
-/* Banner */
-.banner {
-  background-color: $color-banner-bg;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid $color-button;
+h1 { font-size: var(--step-5); }
+h2 { font-size: var(--step-4); }
+h3 { font-size: var(--step-3); }
+h4 { font-size: var(--step-2); }
+h5 { font-size: var(--step-1); }
+h6 { font-size: var(--step-0); }
+
+p {
+  margin-bottom: var(--space-m);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-feature-settings: 'kern', 'liga', 'onum';
 }
 
-/* Code Blocks */
+ul, ol {
+  margin-bottom: var(--space-m);
+  padding-left: var(--space-xl);
+  color: $color-text-secondary;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+
+  li {
+    counter-increment: item;
+    position: relative;
+    margin-bottom: var(--space-xs);
+
+    &::before {
+      content: counter(item) ". ";
+      position: absolute;
+      left: calc(var(--space-xl) * -1);
+      width: var(--space-xl);
+      text-align: right;
+      font-feature-settings: 'lnum', 'tnum';
+      color: $color-text-secondary;
+      font-weight: 700;
+      font-family: $font-heading;
+    }
+  }
+}
+
+blockquote {
+  border-left: 4px solid $color-link;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: var(--space-l);
+  margin-bottom: var(--space-m);
+  font-style: italic;
+  color: $color-text-secondary;
+}
+
 code, pre {
-  background-color: $color-code-bg;
-  padding: 0.2em 0.5em;
   font-family: $font-code;
-  border-radius: 4px;
-  display: inline-block;
+  background-color: $color-code-bg;
+  font-size: var(--step--1);
+  color: $color-text-primary;
 }
+
 pre {
-  padding: 1em;
+  padding: var(--space-l);
   overflow-x: auto;
+  margin-bottom: calc(var(--space-l) * 1.5);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  font-family: $font-code;
+  background-color: $color-code-bg;
+  padding: 0.2em 0.4em;
+  border-radius: calc(#{$border-radius} / 2);
+  color: $color-text-primary;
+  font-size: var(--step--1);
+}
+
+.upper {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-kerning: normal;
+}
+
+.small-caps {
+  font-variant-caps: small-caps;
+  font-kerning: normal;
+  letter-spacing: 0.05rem;
+}
+
+.lining-numerals {
+  font-feature-settings: 'lnum', 'kern';
+}
+
+.oldstyle-numerals {
+  font-feature-settings: 'onum', 'kern';
 }
