@@ -1,5 +1,5 @@
 # [Mystic-Devloper](https://mystic-devloper.github.io)
-A personal website made by mystic-devloper using Jekyll.<br>
+A personal website made by *mystic-devloper* using **Jekyll**.<br>
 Website live at: [Mystic-devloper](https://mystic-devloper.github.io)
 
 ![Screenshot](...) <!-- TODO: Add Image Later -->
