@@ -13,6 +13,8 @@ browserconfig: "assets/browserconfig.xml"
 favicon: "/assets/favicons/favicon512x512.png"
 logo: "/assets/logo/site-logo.svg"
 main_style: "/_sass/main.scss"
+date_format: "%Y-%m-%d %H:%M %Z"
+timezone: "Asia/Kolkata"
 
 #--------------------------------------------------
 # Build Settings
