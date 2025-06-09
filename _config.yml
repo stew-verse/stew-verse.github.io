@@ -69,81 +69,81 @@ favicons:
   1024: "/assets/favicons/favicon1024x1024.png"
 
 splash_screens:
-  - device: iphone-original
-    orientation: portrait
+  - device: "iphone-original"
+    orientation: "portrait"
     width: 320
     height: 480
     ratio: 1
     image: "/assets/favicons/splash-ios-iphone-portrait.png"
 
-  - device: iphone-original
-    orientation: landscape
+  - device: "iphone-original"
+    orientation: "landscape"
     width: 480
     height: 320
     ratio: 1
     image: "/assets/favicons/splash-ios-iphone-landscape.png"
 
-  - device: iphone-retina
-    orientation: portrait
+  - device: "iphone-retina"
+    orientation: "portrait"
     width: 640
     height: 1136
     image: "/assets/favicons/splash-ios-iphone-portrait.png"
 
-  - device: iphone-retina
-    orientation: landscape
+  - device: "iphone-retina"
+    orientation: "landscape"
     width: 1136
     height: 640
     image: "/assets/favicons/splash-ios-iphone-landscape.png"
 
-  - device: iphone-plus
-    orientation: portrait
+  - device: "iphone-plus"
+    orientation: "portrait"
     width: 1242
     height: 2208
     image: "/assets/favicons/splash-ios-iphoneplus-portrait.png"
 
-  - device: iphone-plus
-    orientation: landscape
+  - device: "iphone-plus"
+    orientation: "landscape"
     width: 2208
     height: 1242
     image: "/assets/favicons/splash-ios-iphoneplus-landscape.png"
 
-  - device: iphonex
-    orientation: portrait
+  - device: "iphonex"
+    orientation: "portrait"
     width: 1125
     height: 2436
     image: "/assets/favicons/splash-ios-iphonex-portrait.png"
 
-  - device: iphonex
-    orientation: landscape
+  - device: "iphonex"
+    orientation: "landscape"
     width: 2436
     height: 1125
     image: "/assets/favicons/splash-ios-iphonex-landscape.png"
 
-  - device: ipad
-    orientation: portrait
+  - device: "ipad"
+    orientation: "portrait"
     width: 768
     height: 1024
     image: "/assets/favicons/splash-ios-ipad-portrait.png"
 
-  - device: ipad
-    orientation: landscape
+  - device: "ipad"
+    orientation: "landscape"
     width: 1024
     height: 768
     image: "/assets/favicons/splash-ios-ipad-landscape.png"
 
-  - device: ipadpro
-    orientation: portrait
+  - device: "ipadpro"
+    orientation: "portrait"
     width: 2048
     height: 2732
     image: "/assets/favicons/splash-ios-ipadpro-portrait.png"
 
-  - device: ipadpro
-    orientation: landscape
+  - device: "ipadpro"
+    orientation: "landscape"
     width: 2732
     height: 2048
     image: "/assets/favicons/splash-ios-ipadpro-landscape.png"
 
-# Android handles splash screens automatically through manifest.json
+# Android and desktops handles splash screens automatically through manifest.json
 
 #--------------------------------------------------
 # Navigation
