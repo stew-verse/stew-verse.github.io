@@ -49,6 +49,26 @@ image_path: "/assets/images"
 js_path: "/assets/js"
 
 #--------------------------------------------------
+# Assets
+#--------------------------------------------------
+favicons:
+  ico: "/assets/favicons/favicon.ico"
+  main_apple_touch: "/assets/favicons/apple-touch-icon.png"
+  svg: "/assets/favicons/favicon.svg"
+  16:  "/assets/favicons/favicon16x16.png"
+  32:  "/assets/favicons/favicon32x32.png"
+  48:  "/assets/favicons/favicon48x48.png"
+  64:  "/assets/favicons/favicon64x64.png"
+  128: "/assets/favicons/favicon128x128.png"
+  144: "/assets/favicons/favicon144x144.png"
+  180: "/assets/favicons/favicon180x180.png"
+  192: "/assets/favicons/favicon192x192.png"
+  256: "/assets/favicons/favicon256x256.png"
+  324: "/assets/favicons/favicon324x324.png"
+  512: "/assets/favicons/favicon512x512.png"
+  1024: "/assets/favicons/favicon1024x1024.png"
+
+#--------------------------------------------------
 # Navigation
 #--------------------------------------------------
 navigation:
