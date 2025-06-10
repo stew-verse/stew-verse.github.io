@@ -13,6 +13,7 @@
   background-color: $color-banner-bg;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   &.scrolled {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
