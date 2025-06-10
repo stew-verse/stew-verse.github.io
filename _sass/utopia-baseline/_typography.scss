@@ -139,3 +139,13 @@ code {
 .oldstyle-numerals {
   font-feature-settings: 'onum', 'kern';
 }
+
+  // Bold.
+  b, strong, .bold {
+    font-weight: 700;
+  }
+
+  // Italic.
+em, i, .italic {
+  font-style: italic;
+}
