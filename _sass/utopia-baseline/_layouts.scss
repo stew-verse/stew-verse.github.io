@@ -1,0 +1,84 @@
+// _sass/_layouts.scss
+@use 'variables' as *;
+@use 'utilities/utility-mixins' as *;
+@use 'utilities/utility-spaces';
+@use 'utilities/utility-measures'
+
+.container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gutter);
+}
+
+.column {
+  grid-column: span 12;
+  @include type-step(0);
+  @include measure();
+  @extend .margin-bottom-m;
+}
+
+.column--duo {
+  @media (min-width: 40rem) {
+    grid-column: span 6;
+    @include type-step(-1);
+  }
+}
+
+.column--trio {
+  @media (min-width: 40rem) {
+    grid-column: span 4;
+    @include type-step(-1);
+  }
+}
+
+.column--quad {
+  @media (min-width: 40rem) {
+    grid-column: span 3;
+    @include type-step(-1);
+  }
+}
+
+.column--main {
+  grid-column: span 8;
+  @include type-step(0);
+  @extend .measure-m;
+
+  @media (min-width: 60rem) {
+    @include type-step(1);
+  }
+}
+
+.column--sidebar {
+  grid-column: span 4;
+  @include type-step(-1);
+  color: $color-text-secondary;
+}
+
+.column--main + .column--sidebar {
+  padding-left: var(--grid-gutter);
+}
+
+.column--left,
+.column--right {
+  position: relative;
+
+  .sidenote {
+    position: absolute;
+    top: 0;
+    @include type-step(-1);
+    color: $color-text-secondary;
+    width: calc(100% - var(--grid-gutter));
+    max-width: 20ch;
+
+    @media (min-width: 50rem) {
+      left: 0;
+      @include type-step(0);
+    }
+  }
+}
