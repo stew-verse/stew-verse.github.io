@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout & Typography Test</title>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="grid">
+
+      <!-- Full-width column -->
+      <div class="column">
+        <h1>Heading Level 1</h1>
+        <h2>Heading Level 2</h2>
+        <h3>Heading Level 3</h3>
+        <h4>Heading Level 4</h4>
+        <h5>Heading Level 5</h5>
+        <h6>Heading Level 6</h6>
+        <p>This is a standard paragraph of text. It includes a <strong>bold</strong> word, an <em>italic</em> word, and a <code>code</code> snippet.</p>
+        <p class="upper">This text is uppercase with letter spacing.</p>
+        <p class="small-caps">This sentence uses small caps.</p>
+        <p><span class="lining-numerals">Lining numerals: 0123456789</span></p>
+        <p><span class="oldstyle-numerals">Oldstyle numerals: 0123456789</span></p>
+        <p>A link example: <a href="#">This is a link</a>.</p>
+        <blockquote>This is a blockquote to test pull styling and layout behavior.</blockquote>
+        <pre><code>function hello() {
+  console.log("Hello, world!");
+}</code></pre>
+        <ul>
+          <li>Unordered item 1</li>
+          <li>Unordered item 2</li>
+        </ul>
+        <ol>
+          <li>Ordered item 1</li>
+          <li>Ordered item 2</li>
+        </ol>
+      </div>
+
+      <!-- Duo layout -->
+      <div class="column column--duo">
+        <h2>Duo Column A</h2>
+        <p>Half-width on larger screens.</p>
+      </div>
+      <div class="column column--duo">
+        <h2>Duo Column B</h2>
+        <p>Also half-width on larger screens.</p>
+      </div>
+
+      <!-- Trio layout -->
+      <div class="column column--trio">
+        <h3>Trio A</h3>
+      </div>
+      <div class="column column--trio">
+        <h3>Trio B</h3>
+      </div>
+      <div class="column column--trio">
+        <h3>Trio C</h3>
+      </div>
+
+      <!-- Quad layout -->
+      <div class="column column--quad">Quad 1</div>
+      <div class="column column--quad">Quad 2</div>
+      <div class="column column--quad">Quad 3</div>
+      <div class="column column--quad">Quad 4</div>
+
+      <!-- Main + Sidebar layout -->
+      <div class="column column--main">
+        <h2>Main Content Area</h2>
+        <p>This area takes up 8 columns and is meant to demonstrate primary text content.</p>
+      </div>
+      <div class="column column--sidebar">
+        <h3>Sidebar</h3>
+        <p>This spans 4 columns and appears alongside the main content.</p>
+      </div>
+
+      <!-- Left sidenote -->
+      <div class="column column--left">
+        <h3>With Sidenote</h3>
+        <p>This content has a sidenote for testing absolute positioning.</p>
+        <aside class="sidenote">Sidenote text: citation, remark, or extra info.</aside>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
