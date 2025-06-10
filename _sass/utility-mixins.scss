@@ -1,0 +1,14 @@
+// _sass/utility-mixins.scss
+@mixin measure($max: 65ch) {
+  max-width: $max;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin type-step($step) {
+  font-size: var(--step-#{$step});
+  line-height: 1.6;
+  @if ($step < 0) {
+    line-height: 1.5;
+  }
+}
