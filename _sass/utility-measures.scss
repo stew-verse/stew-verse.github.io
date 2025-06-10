@@ -1,0 +1,6 @@
+// _sass/utility-measures.scss
+.measure-xs { @include measure(45ch); }
+.measure-s  { @include measure(55ch); }
+.measure-m  { @include measure(65ch); }
+.measure-l  { @include measure(75ch); }
+.measure-xl { @include measure(85ch); }
