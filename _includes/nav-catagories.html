@@ -3,13 +3,13 @@
 <nav class="nav  nav--categories">
   <ul class="list  list--categories">
     {% for catagory in catagories %}
-      {% for post in category | last %}
-        {% if post.categories contains "research" %}
+        {% if catagory = "research" or catagory = "blog" or catagory = "game" or catagory = "project" %}
+        {% comment %} Skips {% endcomment %}
+        {% elseif %}
           <li class="item  item--category">
             <a href="#{{ item | first | slugify }}">{{ item | first }}</a>
           </li>
         {% endif %}
-      {% endfor %}
     {% endfor %}
   </ul>
 </nav>
