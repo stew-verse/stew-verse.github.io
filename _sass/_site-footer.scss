@@ -27,9 +27,8 @@
     color: $accentColour;
     text-decoration: none;
 
-    img {
-      filter: invert(20%) sepia(4%) saturate(500%) hue-rotate(175deg);
-    }
+    // The 'img' filter rule is no longer needed as SVGs are handled by fill: currentColor
+    // via the included icon.html and the general .icon styling in _theme.scss.
   }
 
   span {
