@@ -1,0 +1,39 @@
+// Background colours
+$backgroundColour: #EAF3EA !default;
+$codeBackgroundColour: #F0F0F0 !default;
+$featureBackgroundColour: #EAF3EA !default;
+$accentColour: #3C6E71 !default;
+
+// Text colours
+$headingColour: #2F4F4F !default;
+$bodyColour: #2E2E2E !default;
+$paragraphColour: #555555 !default;
+$linkColour: #3C6E71 !default;
+$hoverColour: #8FB5B6 !default;
+$focusColour: #3C6E71 !default;
+$captionColour: #555555 !default;
+$white: #ffffff !default;
+
+// Typography
+$bodytype: (
+  font-family: "Georgia, serif",
+  regular: 400,
+  bold: 700,
+  italic: italic,
+  cap-height: 0.75
+) !default;
+
+$headingtype: (
+  font-family: "Courier New, monospace",
+  regular: 400,
+  bold: 700,
+  cap-height: 0.75
+) !default;
+
+$monospacetype: (
+  font-family: "Courier New, monospace",
+  regular: 400,
+  cap-height: 0.70
+) !default;
+
+// TIP: Load custom fonts in _config.yaml
