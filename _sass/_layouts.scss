@@ -1,1 +1,324 @@
+// Layouts
+// ---------------------------------------
 
+// Container.
+.section {
+  // @include clearfix; // We can likely remove this if all children are flex items and flexbox handles the layout.
+                      // For now, keep it commented out until we confirm.
+
+  margin: 0 auto;
+  position: relative;
+  width: 94%;
+
+  @include breakpoint(break-3) {
+    @include maxwidth(3);
+  }
+
+  @include breakpoint(break-4) {
+    @include maxwidth(4);
+  }
+
+  // Make .section a flex container by default
+  @include flexbox; // Applies display: flex; and vendor prefixes
+  @include flex-wrap(wrap); // Allows flex items to wrap to the next line
+  // Consider adding a gap for consistent spacing between columns, if applicable.
+  // e.g., gap: map-get($gutterwidths, small); (CSS property, not directly in _flex.scss mixins)
+}
+
+// Single column (based on measure for typeset content).
+.single-measure {
+  @include measure(all); // Sets max-width based on measure
+
+  margin: 0 auto; // Centers the single column
+}
+
+// Base column styles.
+.column {
+  // @include measure(0); // This might conflict with flex-basis, keep commented for now.
+                        // flex-basis will define the initial size, grow/shrink will adjust.
+
+  margin: 0 auto; // Keep margin for centering if not directly under a flex container, or if a single column on mobile
+  width: 100%; // Default to full width for small screens
+
+  @include breakpoint(break-1) {
+    // float: left; // REMOVE: No longer needed with flexbox
+    margin: initial; // Reset margin for flex items, letting flexbox handle distribution
+    max-width: initial; // Reset max-width, flex-basis will control width for flex items
+
+    // Make columns flex items. By default, they will take up available space.
+    @include flex-grow(1); // Allow columns to grow and fill available space
+    @include flex-shrink(1); // Allow columns to shrink
+    @include flex-basis(auto); // Initial size is based on content, or can be overridden by specific column types
+
+    padding-left: map-get($gutterwidths, small);
+    padding-right: map-get($gutterwidths, small);
+  }
+
+  @include breakpoint(break-3) {
+    padding-left: map-get($gutterwidths, medium);
+    padding-right: map-get($gutterwidths, medium);
+  }
+}
+
+// Two columns.
+.column--duo {
+  @include breakpoint(break-1) {
+    @include flex-basis(50%); // Sets initial size to 50%
+    @include flex-grow(0); // Prevent growing beyond 50%
+    @include flex-shrink(0); // Prevent shrinking below 50% without explicit content override
+
+    // These nth-of-type rules for clearing and margin-top are float-specific.
+    // With flexbox, you generally rely on `flex-wrap` and potentially `gap` property for spacing.
+    // However, if `margin-top` is for vertical spacing between rows of wrapped items, it can remain.
+    &:nth-of-type(2n+3) {
+      // clear: left; // REMOVE: Not applicable to flexbox
+    }
+
+    &:nth-of-type(n+3) {
+      margin-top: 3rem; // Keep if this is for vertical spacing between wrapped rows
+    }
+  }
+}
+
+// Three columns.
+.column--trio {
+  @include breakpoint(break-1) {
+    @include flex-basis(33.333%); // Sets initial size to 33.333%
+    @include flex-grow(0); // Prevent growing beyond 33.333%
+    @include flex-shrink(0); // Prevent shrinking below 33.333%
+
+    &:nth-of-type(3n+4) {
+      // clear: left; // REMOVE: Not applicable to flexbox
+    }
+
+    &:nth-of-type(n+4) {
+      margin-top: 3rem; // Keep if for vertical spacing between wrapped rows
+    }
+  }
+}
+
+// Four columns. Two at smaller breakpoints.
+.column--quad {
+  @include breakpoint(break-1) {
+    @include flex-basis(50%); // Two columns at break-1
+    @include flex-grow(0);
+    @include flex-shrink(0);
+  }
+
+  @include breakpoint(break-2) {
+    @include flex-basis(25%); // Four columns at break-2
+    @include flex-grow(0);
+    @include flex-shrink(0);
+  }
+}
+
+// Two column layout with a main text column and a sidebar.
+
+// Main column.
+.column--main {
+  @include breakpoint(break-1) {
+    // ideal-measure typically calculates a percentage width. We'll use this for flex-basis.
+    @include ideal-measure(1, small); // This mixin sets `max-width` based on ideal measure
+                                     // We need to ensure it's setting `flex-basis` or use its output value.
+                                     // Assuming ideal-measure outputs a percentage, we can use it directly.
+                                     // If not, we might need to adjust ideal-measure or manually calculate.
+    // For now, let's assume `ideal-measure` sets a `width` or similar that flex-basis can interpret.
+    // Or, more robustly, if ideal-measure can be modified to output flex-basis, that's ideal.
+    flex-basis: auto; // Placeholder. If ideal-measure outputs a direct width, this might be better to keep as auto.
+                      // Or, if ideal-measure can be modified to output flex-basis, that's ideal.
+    @include flex-grow(1); // Allow main column to grow
+    @include flex-shrink(1); // Allow main column to shrink
+  }
+
+  @include breakpoint(break-2) {
+    @include ideal-measure(2, small);
+  }
+
+  @include breakpoint(break-3) {
+    @include ideal-measure(3, medium);
+  }
+
+  @include breakpoint(break-4) {
+    @include ideal-measure(4, medium);
+  }
+}
+
+// Sidebar.
+.column--sidebar {
+  @include breakpoint(break-1) {
+    @include ideal-measure(1, small, false); // This mixin sets `max-width` based on ideal measure
+                                            // Similar to main column, ensure this translates to flex-basis correctly.
+    flex-basis: auto; // Placeholder.
+    @include flex-grow(0); // Sidebar should not grow beyond its content or ideal measure
+    @include flex-shrink(0); // Sidebar should not shrink below its content or ideal measure
+
+    padding-right: map-get($gutterwidths, medium);
+  }
+
+  @include breakpoint(break-2) {
+    @include ideal-measure(2, small, false);
+  }
+
+  @include breakpoint(break-3) {
+    @include ideal-measure(3, medium, false);
+
+    padding-right: map-get($gutterwidths, large);
+  }
+
+  @include breakpoint(break-4) {
+    @include ideal-measure(4, medium, false);
+  }
+}
+
+// If sidebar on the right side.
+// This still applies padding, which works fine with flexbox for gutters.
+// The main issue might be if `ideal-measure` sets `margin-left` which can cause issues with flexbox.
+.column--main + .column--sidebar {
+  @include breakpoint(break-1) {
+    padding-left: map-get($gutterwidths, medium);
+    padding-right: map-get($gutterwidths, small);
+  }
+
+  @include breakpoint(break-3) {
+    padding-left: map-get($gutterwidths, large);
+    padding-right: map-get($gutterwidths, medium);
+  }
+}
+
+// Set the main text one level down in the modular scale for narrower columns.
+.column--trio,
+.column--quad,
+.column--sidebar {
+  @include breakpoint(break-3) {
+    p {
+      @include sassline($fontsize: eta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 3); // Applies font styling and baseline
+    }
+
+    li {
+      @include fontsize(eta, 3); // Applies font size
+    }
+  }
+
+  @include breakpoint(break-4) {
+    p {
+      @include sassline($fontsize: eta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: 4); // Applies font styling and baseline
+    }
+
+    li {
+      @include fontsize(eta, 4); // Applies font size
+    }
+  }
+}
+
+// Main column on the right with inline sidenotes.
+// The sidenotes will move out the column into the sidebar position aligned to the baseline.
+.column--right {
+  position: relative; // Needed for absolute positioning of sidenotes
+  @include flex-grow(1);
+  @include flex-shrink(1);
+  @include flex-basis(auto); // Initial flex-basis, adjust based on ideal-measure
+
+  @include breakpoint(break-1) {
+    @include ideal-measure(1, small); // This will set the width of the main content part
+    // The `ideal-measure(1, small, false, margin-left)` line in the original `_layouts.scss`
+    // was likely used to create space for the sidenote using margin.
+    // With flexbox, and `position: absolute` for sidenotes, this specific `margin-left` might not be necessary on the *column itself*.
+    // Instead, the sidenote's `left` or `right` property will position it.
+    // We need to ensure the parent has enough space.
+    // For now, let's keep the `ideal-measure` only defining the main column's width.
+  }
+
+  @include breakpoint(break-2) {
+    @include ideal-measure(2, small);
+  }
+
+  @include breakpoint(break-3) {
+    @include ideal-measure(3, medium);
+  }
+
+  @include breakpoint(break-4) {
+    @include ideal-measure(4, medium);
+  }
+
+  .sidenote {
+    @include breakpoint(break-1) {
+      @include ideal-measure(1, small, false); // This sets the width of the sidenote
+
+      left: 0; // Positions the sidenote to the left edge of its relatively positioned parent
+      padding-left: map-get($gutterwidths, small);
+      padding-right: map-get($gutterwidths, medium);
+      position: absolute; // Keep absolute positioning
+      // To align with baseline, you'd typically need to adjust `top` or `transform: translateY()`.
+      // This might require a JavaScript solution or more complex CSS if baseline alignment is pixel-perfect.
+      // For now, focus on the layout.
+    }
+
+    @include breakpoint(break-2) {
+      @include ideal-measure(2, small, false);
+    }
+
+    @include breakpoint(break-3) {
+      @include ideal-measure(3, medium, false);
+
+      padding-right: map-get($gutterwidths, large);
+    }
+
+    @include breakpoint(break-4) {
+      @include ideal-measure(4, medium, false);
+
+      padding-left: map-get($gutterwidths, medium);
+    }
+  }
+}
+
+// Main column on the left with inline sidenotes.
+.column--left {
+  position: relative; // Needed for absolute positioning of sidenotes
+  @include flex-grow(1);
+  @include flex-shrink(1);
+  @include flex-basis(auto); // Initial flex-basis, adjust based on ideal-measure
+
+  @include breakpoint(break-1) {
+    @include ideal-measure(1, small);
+  }
+
+  @include breakpoint(break-2) {
+    @include ideal-measure(2, small);
+  }
+
+  @include breakpoint(break-3) {
+    @include ideal-measure(3, medium);
+  }
+
+  @include breakpoint(break-4) {
+    @include ideal-measure(4, medium);
+  }
+
+  .sidenote {
+    @include breakpoint(break-1) {
+      @include ideal-measure(1, small, false); // This sets the width of the sidenote
+      // The `ideal-measure(1, small, true, left)` from the original was likely setting the `left` property
+      // based on the ideal measure for the left column. We can adapt this.
+      right: 0; // Position to the right edge of its relatively positioned parent
+      padding-left: map-get($gutterwidths, medium);
+      padding-right: map-get($gutterwidths, small);
+      position: absolute; // Keep absolute positioning
+    }
+
+    @include breakpoint(break-2) {
+      @include ideal-measure(2, small, false);
+    }
+
+    @include breakpoint(break-3) {
+      @include ideal-measure(3, medium, false);
+
+      padding-left: map-get($gutterwidths, large);
+    }
+
+    @include breakpoint(break-4) {
+      @include ideal-measure(4, medium, false);
+
+      padding-right: map-get($gutterwidths, medium);
+    }
+  }
+}
