@@ -6,7 +6,7 @@
 .site-footer {
   padding: map-get($gutterwidths, small);
   text-align: center;
-  background-color: $backgroundColour;
+  background-color: $bannerColour;
   color: $bodyColour;
   @include fontsize(eta, all); // Adjust font size for main footer text
 
