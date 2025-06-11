@@ -1,4 +1,11 @@
-// _scss/main.scss for compiled .scss files included in assets/styles.scss
 @charset "utf-8";
 
-@import "sassline-base";
+// Import frameworks & theme styles
+@import
+  "normalize",
+  "settings",
+  "sassline-base",
+  "syntax",
+  "flex",
+  "layouts"
+;
