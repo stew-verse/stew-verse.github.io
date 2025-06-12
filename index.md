@@ -6,7 +6,7 @@ excerpt: "Homepage of the website"
 ---
 
 
-  <section id="content-for-test">
+  <section id="baseline">
     <div class="section typeset">
       <div class="single-measure">
         <h1>Lorem ipsum dolor sit&nbsp;amet</h1>
