@@ -1,16 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Typography Test</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-  <link rel="shortcut icon" href="/assets/favicons/favicon.svg">
-  <script src="https://use.typekit.net/xxx1xxx.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-</head>
+---
+title: Mystic Devloper
+Description: Homepage of Mystic Devloper
+layout: default
+excerpt: "Homepage of the website"
+---
 
-<body>
 
   <section id="content-for-test">
     <div class="section typeset">
@@ -44,9 +38,16 @@
 
         <blockquote><p>Fuga rerum laboris officia cupidatat, excepteur aliquid ut quis facere, cumque harum optio dignissimos. Duis repellat tempore dolor blanditiis alias impedit officiis ut&nbsp;consectetur.</p></blockquote>
 
-        <pre><code>body {
-    color: blue;
-}</code></pre>
+        Some HTML...
+
+``` html
+<blockquote cite="http://www.imdb.com/title/tt0284978/quotes/qt1375101">
+  <p>You planning a vacation, Mr. Sullivan?</p>
+  <footer>
+    <a href="http://www.imdb.com/title/tt0284978/quotes/qt1375101">Sunways Security Guard</a>
+  </footer>
+</blockquote>
+```
 
         <h4>Quibusdam illum quo</h4>
 
@@ -186,5 +187,3 @@
       </div>
     </div>
   </section>
-</body>
-</html>
