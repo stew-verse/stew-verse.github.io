@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
 
   <head>
-    <!-- General meta -->
+    <!-- Charset -->
     <meta charset="utf-8">
     
     <!-- Viewport for Mobile -->
@@ -15,18 +15,20 @@
       <meta name="robots" content="noindex">
     {% endif %}
 
-    <!-- Page Title -->
-    <title>{{ page.title }}</title>    
+    <!-- Page Title and description -->
+    <title>{{ page.title }}</title> 
+    <meta name="description" content="{{ page.description }}">
 
     <!-- Progressive Web App -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
     <meta name="theme-color" content="#3C6E71">
     <meta name="apple-mobile-web-app-status-bar-style" content="default" >
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Windows Tile Configuration -->
     <meta name="msapplication-config" content="{{ "/browserconfig.xml" | relative_url }}>
-    
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
 
     {% include site-favicons.html %}
@@ -37,9 +39,14 @@
 
   <body>
 
+    {% include site-header.html %}
+
     {{ content }}
 
+    {% include site-footer.html %}
+
     {% include site-sw.html %}
+    
   </body>
 
   </html>
