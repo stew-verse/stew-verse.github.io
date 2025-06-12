@@ -15,26 +15,17 @@
       <meta name="robots" content="noindex">
     {% endif %}
 
-    {% if page.collectionpage %}
-      {% seo title=false %}
-
-      {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
-      <title>{{ collectiondata.title }} - {{ site.title }}</title>
-      <meta property="og:title" content="{{ collectiondata.title }}">
-      <meta name="description" content="{{ collectiondata.description }}">
-      <meta property="og:description" content="{{ collectiondata.description }}">
-    {% else %}
-      {% seo %}
-    {% endif %}
+    <!-- Page Title -->
+    <title>{{ page.title }}</title>    
 
     <!-- Progressive Web App -->
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#3C6E71" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3C6E71">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Windows Tile Configuration -->
-    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-config" content="{{ "/browserconfig.xml" | relative_url }}>
     
     <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
 
