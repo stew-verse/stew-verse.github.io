@@ -4,32 +4,41 @@
 @use "typography" as *;
 
 .site-footer {
-  padding: map-get($gutterwidths, small);
-  text-align: center;
-  background-color: $bannerColour;
-  color: $bodyColour;
-  @include fontsize(eta, all); // Adjust font size for main footer text
+
+  p {
+    @include fontsize(eta, all);
+
+    color: $bodyColour;
+    background-color: $bannerColour;
+    font-family: unquote(map-get($headingtype, font-family));
+    font-style: normal;
+    font-weight: map-get($headingtype, regular);
+    padding: 1rem 0;
+    margin: 0;
+    text-align: center;
+  }
 
   .social-links-container {
     color: $paragraphColour;
-    margin-top: 0.375rem; // Equivalent to 6px
+    margin-top: 0.375rem;
     @include fontsize(theta, all); // Adjust font size for social links, smaller than main footer text
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
-    @include flex-wrap(wrap);
-    gap: map-get($gutterwidths, small) / 2; // Equivalent to 8px
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   a {
     display: inline-flex;
-    @include align-items(center);
+    align-items: center;
     gap: 0.375rem; // Equivalent to 6px
     color: $accentColour;
     text-decoration: none;
 
-    // The 'img' filter rule is no longer needed as SVGs are handled by fill: currentColor
-    // via the included icon.html and the general .icon styling in _theme.scss.
+    img {
+      filter: invert(20%) sepia(4%) saturate(500%) hue-rotate(175deg);
+    }
   }
 
   span {
