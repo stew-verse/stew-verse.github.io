@@ -186,6 +186,8 @@ exclude:
   - Gemfile.lock
   - node_modules
   - README.md
+  - LICENSE
+  - .jekyll-cache
 
 #--------------------------------------------------
 # Defaults
