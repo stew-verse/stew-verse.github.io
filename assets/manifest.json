@@ -1,3 +1,9 @@
+---
+permalink: "manifest.json"
+layout: null
+sitemap: false
+---
+
 {
   "name": "Mystic Devloper",
   "short_name": "MysticDevloper",
