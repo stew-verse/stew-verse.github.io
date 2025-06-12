@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+  <head>
+    <!-- General meta -->
+    <meta charset="utf-8">
+    
+    <!-- Viewport for Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- IE Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    {% if page.indexing == false %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+
+    {% if page.collectionpage %}
+      {% seo title=false %}
+
+      {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+      <title>{{ collectiondata.title }} - {{ site.title }}</title>
+      <meta property="og:title" content="{{ collectiondata.title }}">
+      <meta name="description" content="{{ collectiondata.description }}">
+      <meta property="og:description" content="{{ collectiondata.description }}">
+    {% else %}
+      {% seo %}
+    {% endif %}
+
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#3C6E71" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- Windows Tile Configuration -->
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
+
+    {% include site-favicons.html %}
+    {% include site-splash-screens.html %}
+
+    {% include site-analytics.html %}
+  </head>
+
+  <body>
+
+    {{ content }}
+
+    {% include site-sw.html %}
+  </body>
+
+  </html>
