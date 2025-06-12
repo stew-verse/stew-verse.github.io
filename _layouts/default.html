@@ -28,8 +28,10 @@
     <!-- Windows Tile Configuration -->
     <meta name="msapplication-config" content="{{ "/browserconfig.xml" | relative_url }}>
 
-    <!-- Stylesheet -->
+    <!-- Stylesheet and typography -->
     <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
+    <script src="https://use.typekit.net/xxx1xxx.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     {% include site-favicons.html %}
     {% include site-splash-screens.html %}
@@ -38,8 +40,6 @@
   </head>
 
   <body>
-
-    {% include site-header.html %}
 
     {{ content }}
 
