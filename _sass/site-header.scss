@@ -1,0 +1,51 @@
+.site-header {
+  background-color: $bannerColour;
+  font-size: 0;
+
+  .logo-name {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-size: 132px 19px;
+    color: transparent;
+    display: inline-block;
+    font: 0/0 a;
+    height: 19px;
+    margin: 2rem 0 2rem 3%;
+    position: relative;
+    vertical-align: middle;
+    width: 132px;
+  }
+
+  @include breakpoint(break-1) {
+      margin-left: 2rem;
+  }
+
+  .profile-text {
+    @include fontsize(eta, all);
+    color: $paragraphColour;
+    line-height: 1.2;
+
+    strong {
+      color: $bodyColour;
+    }
+  }
+
+  .username {
+    @include fontsize(eta, all);
+    color: $paragraphColour;
+    font-style: italic;
+    line-height: 1.2;
+  }
+}
