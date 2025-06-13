@@ -55,25 +55,14 @@
   }
 }
 
-// Top-level navigation container
-.main-nav {
-  position: sticky;
-  top: 0;
+.global-header {
+  background-color: $bannerColour;
   z-index: 1000;
   display: inline-block;
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(center);
-  background-color: $bannerColour;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  &.scrolled {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease;
-  }
-
+  
   .logo-name {
     text-decoration: none;
     display: flex;
@@ -108,6 +97,26 @@
     font-style: italic;
     line-height: 1.2;
   }
+}
+
+// Top-level navigation container
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: inline-block;
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+  background-color: $bannerColour;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  &.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
   
 .js {
   .nav-toggle {
@@ -127,7 +136,7 @@
     transform: translateY(-50%);
 
     &:after {
-      background-image: url(../img/menu.svg);
+      background-image: url(/assets/img/menu.svg);
       background-position: 0 0;
       background-size: 30px 60px;
       content: '';
