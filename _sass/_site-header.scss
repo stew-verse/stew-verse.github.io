@@ -1,8 +1,10 @@
 .site-header {
   background-color: $bannerColour;
   font-size: 0;
-  max-width: 300px;
 
+  .logo-container{
+    max-width: 350px;
+    
   .logo-name {
     text-decoration: none;
     display: flex;
@@ -19,11 +21,6 @@
     height: 48px;
     border-radius: 50%;
     vertical-align: middle;
-    margin-left: 0.8rem;
-  }
-
-  @include breakpoint(break-1) {
-      margin-left: 1.5rem;
   }
 
   .profile-text {
@@ -42,4 +39,5 @@
     font-style: italic;
     line-height: 1.2;
   }
+}
 }
