@@ -24,15 +24,7 @@ theme: null # Left blank (using custom styles)
 markdown: kramdown
 permalink: pretty
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-mentions
-  - jekyll-redirect-from
-  - jekyll-commonmark
-  - jekyll-include-cache
-  - jemoji
+  # Not using Jeykll plugins
 
 paginate: 5
 paginate_path: "/blog/page:num"
@@ -76,83 +68,6 @@ favicons:
   512: "/assets/favicons/favicon512x512.png"
   1024: "/assets/favicons/favicon1024x1024.png"
 
-splash_screens:
-  - device: "iphone-original"
-    orientation: "portrait"
-    width: 320
-    height: 480
-    ratio: 1
-    image: "/assets/favicons/splash-ios-iphone-portrait.png"
-
-  - device: "iphone-original"
-    orientation: "landscape"
-    width: 480
-    height: 320
-    ratio: 1
-    image: "/assets/favicons/splash-ios-iphone-landscape.png"
-
-  - device: "iphone-retina"
-    orientation: "portrait"
-    width: 640
-    height: 1136
-    image: "/assets/favicons/splash-ios-iphone-portrait.png"
-
-  - device: "iphone-retina"
-    orientation: "landscape"
-    width: 1136
-    height: 640
-    image: "/assets/favicons/splash-ios-iphone-landscape.png"
-
-  - device: "iphone-plus"
-    orientation: "portrait"
-    width: 1242
-    height: 2208
-    image: "/assets/favicons/splash-ios-iphoneplus-portrait.png"
-
-  - device: "iphone-plus"
-    orientation: "landscape"
-    width: 2208
-    height: 1242
-    image: "/assets/favicons/splash-ios-iphoneplus-landscape.png"
-
-  - device: "iphonex"
-    orientation: "portrait"
-    width: 1125
-    height: 2436
-    image: "/assets/favicons/splash-ios-iphonex-portrait.png"
-
-  - device: "iphonex"
-    orientation: "landscape"
-    width: 2436
-    height: 1125
-    image: "/assets/favicons/splash-ios-iphonex-landscape.png"
-
-  - device: "ipad"
-    orientation: "portrait"
-    width: 768
-    height: 1024
-    image: "/assets/favicons/splash-ios-ipad-portrait.png"
-
-  - device: "ipad"
-    orientation: "landscape"
-    width: 1024
-    height: 768
-    image: "/assets/favicons/splash-ios-ipad-landscape.png"
-
-  - device: "ipadpro"
-    orientation: "portrait"
-    width: 2048
-    height: 2732
-    image: "/assets/favicons/splash-ios-ipadpro-portrait.png"
-
-  - device: "ipadpro"
-    orientation: "landscape"
-    width: 2732
-    height: 2048
-    image: "/assets/favicons/splash-ios-ipadpro-landscape.png"
-
-# Android and desktops handles splash screens automatically through manifest.json
-
 #--------------------------------------------------
 # Navigation
 #--------------------------------------------------
@@ -169,8 +84,6 @@ navigation:
     url: "/games/"
   - title: "About"
     url: "/about/"
-  - title: "Search"
-    url: "/search/"
 
 #--------------------------------------------------
 # Styling Settings
@@ -224,10 +137,3 @@ seo:
   type: "Person"
   image: "/favicons-512x512.png"
   twitter: "sinister_surya"
-
-#--------------------------------------------------
-# Sitemap
-#--------------------------------------------------
-sitemap:
-  exclude:
-    - "/404.html"
