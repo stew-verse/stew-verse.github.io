@@ -1,5 +1,5 @@
 # [Mystic-Devloper](https://mystic-devloper.github.io)
-A personal website made by *mystic-devloper* using **Jekyll**.<br>
+A personal website made by *mystic-devloper* using **HTML, CSS and JS**.<br>
 Website live at: [Mystic-devloper](https://mystic-devloper.github.io)
 
 ![Screenshot](...) <!-- TODO: Add Image Later -->
@@ -20,7 +20,6 @@ Website live at: [Mystic-devloper](https://mystic-devloper.github.io)
 - HTML5
 - CSS3 \(Extended by SCSS\)
 - JavaScript
-- Jekyll
 
 ## Color Scheme
 The website's primary **color scheme** is listed below, 
@@ -49,8 +48,7 @@ The website's primary **font scheme** is listed below,
 | Code Blocks | Courier New Monospace | Used in code/math blocks |
 
 ## Features
-This website is powered by [Jekyll](https://jekyllrb.com/). It follows ***DRY*** *(Don't Repeat Yourself)*, so it is heavily focused on modularity. 
-This website also includes **GA** *(Google Analytics)* for tracking website engagements and other analytics.
+This website is powered by HTML, CSS and JS. This website also includes **GA** *(Google Analytics)* for tracking website engagements and other analytics.
 
 ## Sections
 The Website itself is divided in further sections, listed below,
