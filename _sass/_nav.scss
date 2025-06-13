@@ -54,7 +54,7 @@
 .main-nav {
 
   @include breakpoint(break-1) {
-    display: inline-block;
+    display: flex;
     width: calc(100% - 132px - 2rem);
     vertical-align: middle;
   }
