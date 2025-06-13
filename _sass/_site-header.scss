@@ -2,9 +2,10 @@
   background-color: $bannerColour;
   font-size: 0;
   max-width: 1600px;
-  display: flex;
+  justify-content: center;
 
   .logo-container{
+    display: flex;
     max-width: 500px;
     
   .logo-name {
