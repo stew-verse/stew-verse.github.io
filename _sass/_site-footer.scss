@@ -22,17 +22,17 @@
     color: $paragraphColour;
     margin-top: 0.375rem;
     @include fontsize(theta, all); // Adjust font size for social links, smaller than main footer text
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    gap: 0.5rem;
   }
 
   a {
     display: inline-flex;
-    align-items: center;
-    gap: 0.375rem; // Equivalent to 6px
+    @include align-items(center);
+    gap: 0.375rem;
     color: $accentColour;
     text-decoration: none;
 
