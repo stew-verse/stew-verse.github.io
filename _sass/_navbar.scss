@@ -3,16 +3,67 @@
 @use "flex" as *;
 @use "typography" as *;
 
+// responsive-nav.js styles.
+.nav-collapse {
+
+  ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    display: block;
+    width: 100%;
+  }
+
+  &.opened {
+    max-height: 9999px;
+  }
+}
+
+.js {
+
+  .nav-collapse {
+    clip: rect(0 0 0 0);
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    zoom: 1;
+
+    @include breakpoint(break-1) {
+      max-height: none;
+      position: relative;
+    }
+  }
+}
+
+.disable-pointer-events {
+  pointer-events: none;
+}
+
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none;
+  user-select: none;
+
+  @include breakpoint(break-1) {
+    display: none;
+  }
+}
+
 // Top-level navigation container
 .main-nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: inline-block;
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(center);
-  padding-block: map-get($gutterwidths, small);
-  padding-inline: map-get($gutterwidths, large);
   background-color: $bannerColour;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(6px);
@@ -57,7 +108,8 @@
     font-style: italic;
     line-height: 1.2;
   }
-
+  
+.js {
   .nav-toggle {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-touch-callout: none;
@@ -219,4 +271,5 @@
       @include breakpoint(break-4) { @include fontsize(12, 4); }
     }
   }
+}
 }
