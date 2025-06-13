@@ -4,11 +4,15 @@
   max-width: 1600px;
   justify-content: center;
   align-items: center;
-  margin: 100%;
 
   .logo-container{
     display: flex;
     max-width: 500px;
+    background: transparent;
+    margin: 2rem 0 2rem 3%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
     padding: 1rem 0;
     
   .logo-name {
