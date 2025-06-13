@@ -1,6 +1,0 @@
-<!-- iOS Splash Screens -->
-{% for splash in site.splash_screens %}
-  <link rel="apple-touch-startup-image"
-        href="{{ splash.image }}"
-        media="(device-width: {{ splash.width }}px) and (device-height: {{ splash.height }}px){% if splash.ratio %} and (-webkit-device-pixel-ratio: {{ splash.ratio }}){% endif %}">
-{% endfor %}
