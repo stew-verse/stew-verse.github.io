@@ -1,6 +1,5 @@
 .site-header {
   background-color: $bannerColour;
-  font-size: 0;
   max-width: 1600px;
   align-items: center;
   padding: 1.5rem 0.5rem;
@@ -9,55 +8,58 @@
     display: flex;
     justify-content: space-between;
   }
+}
 
-  .logo-container{
-    max-width: 500px;
-    background: transparent;
-    display: inline-block;
-    position: relative;
-    justify-content: flex-start;
-    vertical-align: middle;
-    
-  .logo-name {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+.logo-container {
+  background: transparent;
+  /* Removed display: inline-block, vertical-align, justify-content */
+}
 
-    &:hover {
-      opacity: 0.85;
-      transition: opacity 0.2s;
-    }
-  }
+.logo-name {
+  text-decoration: none;
+  display: flex; /* Makes logo and profile-details flex items */
+  align-items: center; /* Vertically centers logo and profile-details */
+  gap: 0.5rem; /* Space between logo and profile-details */
 
-  .logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    vertical-align: middle;
-  }
-
-  .profile-text {
-    @include fontsize(eta, all);
-    font-family: unquote(map-get($headingtype, font-family));
-    font-style: normal;
-    font-weight: map-get($headingtype, regular);
-    color: $paragraphColour;
-    line-height: 1.2;
-    padding: 0.25rem;
-    
-    strong {
-      color: $bodyColour;
-    }
-  }
-
-  .username {
-    @include fontsize(eta, all);
-    color: $paragraphColour;
-    font-family: unquote(map-get($headingtype, font-family));
-    font-style: italic;
-    font-weight: map-get($headingtype, regular);
-    line-height: 1.2;
-    padding: 0;
+  &:hover {
+    opacity: 0.85;
+    transition: opacity 0.2s;
   }
 }
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  /* Removed vertical-align */
+}
+
+.profile-details { /* New container for text */
+  display: flex;
+  flex-direction: column; /* Stacks profile-text and username vertically */
+  gap: 0.1rem;
+}
+
+.profile-text {
+  @include fontsize(eta, all);
+  font-family: unquote(map-get($headingtype, font-family));
+  font-style: normal;
+  font-weight: map-get($headingtype, regular);
+  color: $paragraphColour;
+  line-height: 1.2;
+  padding: 0; /* Control spacing with parent's gap */
+  
+  strong {
+    color: $bodyColour;
+  }
+}
+
+.username {
+  @include fontsize(eta, all);
+  color: $paragraphColour;
+  font-family: unquote(map-get($headingtype, font-family));
+  font-style: italic;
+  font-weight: map-get($headingtype, regular);
+  line-height: 1.2;
+  padding: 0; /* Control spacing with parent's gap */
 }
