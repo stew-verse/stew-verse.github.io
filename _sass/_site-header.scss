@@ -3,7 +3,6 @@
   max-width: 1600px;
   align-items: center;
   padding: 1rem 0.5rem;
-  height: auto;
 
   @include breakpoint(break-1) {
     display: flex;
@@ -11,7 +10,7 @@
   }
 
     a {
-      position: absolute;
+      position: relative;
       max-width: 350px;
 
       @include breakpoint(break-1) {
