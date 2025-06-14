@@ -8,6 +8,7 @@
   @include breakpoint(break-1) {
     display: flex;
     justify-content: space-between;
+  }
 
     a {
       max-width: 350px;
@@ -17,12 +18,13 @@
         max-width: auto;
       }
     }
-  }
 }
 
 .logo-container {
   background: transparent;
   position: relative;
+  max-width: 350px;
+  margin: 2rem 0 2rem 3%;
   /* Removed display: inline-block, vertical-align, justify-content */
 }
 
