@@ -4,6 +4,7 @@
   max-width: 1600px;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 0.5rem;
 
   .logo-container{
     display: flex;
@@ -39,7 +40,6 @@
     font-weight: map-get($headingtype, regular);
     color: $paragraphColour;
     line-height: 1.2;
-    padding: 0.5rem;
 
     strong {
       color: $bodyColour;
