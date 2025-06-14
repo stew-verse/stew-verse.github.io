@@ -76,7 +76,7 @@
     font-family: unquote(map-get($headingtype, font-family));
     font-style: normal;
     font-weight: map-get($headingtype, regular);
-    justify-content: flex-start
+    justify-content: flex-start;
 
     a, span {
       -webkit-user-select: none;
