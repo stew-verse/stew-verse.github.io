@@ -140,7 +140,6 @@
       display: inline-block;
       max-height: none;
       position: relative;
-      vertical-align: middle;
     }
   }
 
@@ -149,7 +148,7 @@
     line-height: 0;
     position: absolute;
     right: 3%;
-    vertical-align: middle;
+    top: 2rem;
 
     &:after {
       background-image: url(../assets/img/menu.svg);
