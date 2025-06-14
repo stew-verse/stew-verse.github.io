@@ -140,6 +140,7 @@
       display: inline-block;
       max-height: none;
       position: relative;
+      font-size: 0;
     }
   }
 
@@ -149,12 +150,14 @@
     position: absolute;
     right: 3%;
     top: 2rem;
+    font-size: 0;
 
     &:after {
       background-image: url(../assets/img/menu.svg);
       background-position: 0 0;
       background-size: 30px 60px;
       content: '';
+      font-size: 0;
       display: block;
       height: 30px;
       width: 30px;
