@@ -2,16 +2,27 @@
   background-color: $bannerColour;
   max-width: 1600px;
   align-items: center;
-  padding: 1.5rem 0.5rem;
+  padding: 1rem 0.5rem;
+  height: auto;
 
   @include breakpoint(break-1) {
     display: flex;
     justify-content: space-between;
+
+    a {
+      max-width: 350px;
+
+      @include breakpoint(break-1) {
+        width: auto;
+        max-width: auto;
+      }
+    }
   }
 }
 
 .logo-container {
   background: transparent;
+  position: relative;
   /* Removed display: inline-block, vertical-align, justify-content */
 }
 
