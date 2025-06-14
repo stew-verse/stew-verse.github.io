@@ -2,10 +2,13 @@
   background-color: $bannerColour;
   font-size: 0;
   max-width: 1600px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem 0.5rem;
+
+  @include breakpoint(break-1) {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .logo-container{
     max-width: 500px;
