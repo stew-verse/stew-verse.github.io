@@ -2,6 +2,7 @@
   background-color: $bannerColour;
   max-width: 1600px;
   align-items: center;
+  padding: 1rem 0.5rem;
   height: auto;
 
   @include breakpoint(break-1) {
@@ -11,10 +12,6 @@
 
     a {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
       max-width: 350px;
 
       @include breakpoint(break-1) {
