@@ -34,8 +34,10 @@
 
   .profile-text {
     @include fontsize(eta, all);
+    font-family: "Courier New, monospace";
     color: $paragraphColour;
     line-height: 1.2;
+    padding: 1.5rem;
 
     strong {
       color: $bodyColour;
@@ -45,6 +47,7 @@
   .username {
     @include fontsize(eta, all);
     color: $paragraphColour;
+    font-family: "Courier New, monospace";
     font-style: italic;
     line-height: 1.2;
   }
