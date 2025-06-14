@@ -4,9 +4,9 @@
   max-width: 1600px;
   align-items: center;
   padding: 1.5rem 0.5rem;
-  display: flex;
 
   @include breakpoint(break-1) {
+    display: flex;
     justify-content: space-between;
   }
 
