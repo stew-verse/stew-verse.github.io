@@ -64,6 +64,10 @@
   <!-- Typekit for typography support -->
   <script src="https://use.typekit.net/xxx1xxx.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <!-- Prsim.js Styles for Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -131,9 +135,61 @@
 
         <blockquote><p>Fuga rerum laboris officia cupidatat, excepteur aliquid ut quis facere, cumque harum optio dignissimos. Duis repellat tempore dolor blanditiis alias impedit officiis ut&nbsp;consectetur.</p></blockquote>
 
-        <pre><code>body {
-    color: blue;
-}</code></pre>
+        <h2>Code Section</h2>
+        <p>Some C++ Code...</p>
+        
+        <pre class="line-numbers"><code class="language-cpp">
+#include <iostream>
+#include <vector>
+#include <algorithm> // For std::for_each
+
+int main() {
+  std::vector<int> numbers = {10, 20, 30, 40, 50};
+  
+  // Print squares of numbers
+  std::for_each(numbers.begin(), numbers.end(), [](int n){
+      std::cout << n * n << " ";
+  });
+  std::cout << std::endl;
+
+  // Check if a number exists
+  int search_val = 30;
+  if (std::find(numbers.begin(), numbers.end(), search_val) != numbers.end()) {
+      std::cout << search_val << " found in vector." << std::endl;
+  } else {
+      std::cout << search_val << " not found." << std::endl;
+  }
+
+  return 0;
+}
+        </code></pre>
+
+        <p>Some Python Code...</p>
+        <pre class="line-numbers"><code class="language-python">
+import requests
+
+def fetch_user_data(username):
+    """Fetches user data from GitHub API."""
+    api_url = f"https://api.github.com/users/{username}"
+    try:
+        response = requests.get(api_url, timeout=5)
+        response.raise_for_status() # Raises HTTPError for bad responses (4xx or 5xx)
+        user_data = response.json()
+        return user_data
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data for {username}: {e}")
+        return None
+
+if __name__ == "__main__":
+    user = "octocat"
+    data = fetch_user_data(user)
+    if data:
+        print(f"Username: {data['login']}")
+        print(f"Public Repos: {data['public_repos']}")
+        print(f"Followers: {data['followers']}")
+    else:
+        print(f"Could not retrieve data for {user}.")
+        </code></pre>
 
         <h4>Quibusdam illum quo</h4>
 
@@ -322,6 +378,19 @@
       </a>
     </p>
   </footer>
+
+  <!-- Scripts Section-->
+  <!-- Prism Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+  <!-- Prism C++ and Python components -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+  <!-- Prism Toolbar, Copy and Numberline plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 
   <!-- Setting up navigation -->
   <script>
