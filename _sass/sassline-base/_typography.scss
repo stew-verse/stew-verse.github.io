@@ -318,6 +318,11 @@ a {
     word-wrap: break-word;
   }
 
+pre.line-numbers {
+    padding-left: 0;
+    position: relative;
+  }
+
   code {
     @include fontsize(theta, all);
 
