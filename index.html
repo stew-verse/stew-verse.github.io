@@ -21,15 +21,21 @@
   <meta name="msapplication-config" content="/assets/browserconfig.xml">
 
   <!-- Title and Description -->
-  <title>Mystic Devloper</title>
-  <meta name="description" content="Math, code and logic by Surya!">
+  <title>Mystic Devloper: Math, Code and Loagic!</title>
+  <meta name="description" content="A personal website created by Surya! Explore math, codes and logic with Surya with fresh perspectives and innovative insights!">
 
-  <!-- Prsim.js Styles for Highlighting -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <!-- OG Title and Description -->
+  <meta property="og:title" content="Mystic Devloper: Math, Code and Logic!">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mystic-devloper.github.io">
+  <meta property="og:image" content="https://mystic-devloper.github.io/assets/img/mystic-devloper.png">
+  <meta property="og:description" content="A personal website created by Surya! Explore codes, math, and logic with Surya with fresh perspectives and innovative insights!">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="/assets/styles.css">
+
+  <!-- Highlight.js Styles for Highlighting -->
+  <link href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-light.min.css" rel="stylesheet">
 
   <!-- Favicons Setup -->
   <!-- SVG for modern browsers -->
@@ -138,26 +144,26 @@
         <h2>Code Section</h2>
         <p>Some C++ Code...</p>
         
-        <pre class="line-numbers"><code class="language-cpp">
-#include <iostream>
-#include <vector>
-#include <algorithm> // For std::for_each
+        <pre><code class="language-cpp hljs-ln">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
 
 int main() {
-  std::vector<int> numbers = {10, 20, 30, 40, 50};
-  
-  // Print squares of numbers
-  std::for_each(numbers.begin(), numbers.end(), [](int n){
-      std::cout << n * n << " ";
-  });
-  std::cout << std::endl;
+  std::vector&lt;int&gt; numbers = {10, 20, 30, 40, 50};
 
-  // Check if a number exists
+  // Iterate and print squares
+  for (int num : numbers) {
+    std::cout &lt;&lt; num * num &lt;&lt; " ";
+  }
+  std::cout &lt;&lt; std::endl;
+
+  // Search for an element
   int search_val = 30;
   if (std::find(numbers.begin(), numbers.end(), search_val) != numbers.end()) {
-      std::cout << search_val << " found in vector." << std::endl;
+      std::cout &lt;&lt; search_val &lt;&lt; " found." &lt;&lt; std::endl;
   } else {
-      std::cout << search_val << " not found." << std::endl;
+      std::cout &lt;&lt; search_val &lt;&lt; " not found." &lt;&lt; std::endl;
   }
 
   return 0;
@@ -165,7 +171,7 @@ int main() {
         </code></pre>
 
         <p>Some Python Code...</p>
-        <pre class="line-numbers"><code class="language-python">
+        <pre class><code class="language-python hljs-ln">
 import requests
 
 def fetch_user_data(username):
@@ -380,16 +386,22 @@ if __name__ == "__main__":
   </footer>
 
   <!-- Scripts Section-->
-  <!-- Prism Source -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Highlight.js Source -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
 
-  <!-- Prism C++ and Python components -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <!-- Highlight.js C++ and Python components -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/cpp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/python.min.js"></script>
+        
+  <!-- Highlight.js Numberline plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
 
-  <!-- Prism Numberline plugins -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-
+  <!-- Setting up Highlight.js -->
+  <script>
+    hljs.highlightAll();
+    hljs.initLineNumbersOnLoad();
+  </script>
+        
   <!-- Setting up navigation -->
   <script>
     var navigation = responsiveNav(".main-nav");
