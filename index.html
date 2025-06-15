@@ -388,7 +388,12 @@ if __name__ == "__main__":
   </footer>
 
   <!-- Scripts Section-->
-  <!-- Highlight.js Source -->
+  <!-- Setting up navigation -->
+  <script>
+    var navigation = responsiveNav(".main-nav");
+  </script>
+
+  <!-- Highlight.js Core -->
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
 
   <!-- Highlight.js C++ and Python components -->
@@ -400,13 +405,10 @@ if __name__ == "__main__":
 
   <!-- Setting up Highlight.js -->
   <script>
-    hljs.highlightAll();
-    hljs.initLineNumbersOnLoad();
-  </script>
-        
-  <!-- Setting up navigation -->
-  <script>
-    var navigation = responsiveNav(".main-nav");
+    document.addEventListener('DOMContentLoaded', (event) => {
+      hljs.highlightAll();
+      hljs.initLineNumbersOnLoad();
+    });
   </script>
   
 </body>
